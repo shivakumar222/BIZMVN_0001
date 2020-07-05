@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[×
+Success !
+City Saved Successfully]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="40603" started-at="2020-07-04T13:18:56Z" finished-at="2020-07-04T13:19:37Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="40603" started-at="2020-07-04T13:18:56Z" finished-at="2020-07-04T13:19:37Z">
+      <class name="MavenDemo.BizgazeMaven.ModuleCities">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:MavenDemo.BizgazeMaven.ModuleCities@b59d31]" name="openBrowser" is-config="true" duration-ms="4413" started-at="2020-07-04T13:18:56Z" finished-at="2020-07-04T13:19:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="login()[pri:0, instance:MavenDemo.BizgazeMaven.ModuleCities@b59d31]" name="login" is-config="true" duration-ms="12384" started-at="2020-07-04T13:19:01Z" finished-at="2020-07-04T13:19:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="handleWindowPopup()[pri:0, instance:MavenDemo.BizgazeMaven.ModuleCities@b59d31]" name="handleWindowPopup" is-config="true" duration-ms="5593" started-at="2020-07-04T13:19:13Z" finished-at="2020-07-04T13:19:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- handleWindowPopup -->
+        <test-method status="PASS" signature="testCreatecity()[pri:1, instance:MavenDemo.BizgazeMaven.ModuleCities@b59d31]" name="testCreatecity" duration-ms="18188" started-at="2020-07-04T13:19:19Z" finished-at="2020-07-04T13:19:37Z">
+          <reporter-output>
+            <line>
+              <![CDATA[×
+Success !
+City Saved Successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testCreatecity -->
+      </class> <!-- MavenDemo.BizgazeMaven.ModuleCities -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
