@@ -1,19 +1,30 @@
 package MavenDemo.BizgazeMaven;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ModuleCities  extends SETUP
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
+public class ModuleCities  extends SetupClass
 {
+	/*ModuleCities() throws EncryptedDocumentException, Exception 
+	{
+		
+	}*/
+	public ExtentTest test;
 	@BeforeMethod()
 	public void handleWindowPopup() throws AWTException, InterruptedException
 	{
@@ -28,24 +39,26 @@ public class ModuleCities  extends SETUP
 	public void testCreatecity()
 	{	
 		//GIVING ALL DETAILS AND CLICK ON SAVE 
-        
+		  test = extent.createTest("MyFirstTest", "opened chromebrowser and my website");
 		WebDriverWait w11=new WebDriverWait(driver,30); 
 	 	w11.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()='Cities']")));
 		driver.findElement(By.xpath("//div[text()='Cities']")).click();
 	    driver.findElement(By.id("btnCreateNew")).click();
 	    WebDriverWait w2=new WebDriverWait(driver,3); 
 	    WebElement CityName=w2.until(ExpectedConditions.visibilityOfElementLocated(By.id("txt_CityName")));
-	    CityName.sendKeys("vskp1");
-		driver.findElement(By.cssSelector("input[id='txt_CityCode']")).sendKeys("7928");
+	    CityName.sendKeys("vs33");
+		driver.findElement(By.cssSelector("input[id='txt_CityCode']")).sendKeys("82");
 		driver.findElement(By.id("select2-txtAutoComplete_110144181002819_DistrictId-container")).click();
 		WebElement dropdown =w2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Agra']")));
 	   	dropdown.click();
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
 		w2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='bizgaze_body']/div[8]/div")));
 		String s=driver.findElement(By.xpath("//*[@id='bizgaze_body']/div[8]/div")).getText();
-		Reporter.log(s);		
+		Reporter.log(s);	
+		log.info("****************************** ending test case *****************************************");
 	}
-@Test(priority=2)
+	
+/*@Test(priority=2)
 public void testCreateCity1()      
 {
 	      //WITHOUT GIVING CITY CODE AND CLICK ON SAVE 
@@ -143,7 +156,24 @@ public void testCreatecity6()
 	driver.findElement(By.xpath("//button[text()='Save']")).click();
 	w11.until(ExpectedConditions.visibilityOfElementLocated(By.id("Bizgaze-messageInfo")));
 	Reporter.log(driver.findElement(By.id("Bizgaze-messageInfo")).getText()); 
-}
+}*/
+	@AfterMethod
+	public void result(ITestResult result)
+	{
+		if(result.getStatus()==ITestResult.FAILURE)
+		{
+			test.log(Status.FAIL,"Test Case FAILED IS"+result.getName());//to add name in extent report
+			test.log(Status.FAIL,"Test Case FAILED IS"+result.getThrowable());//to add error/exception in extent report	
+		}
+		else if(result.getStatus()==ITestResult.SKIP)
+		{
+			test.log(Status.SKIP, "Test case skipped is"+result.getName());
+		}
+		else if(result.getStatus()==ITestResult.SUCCESS)
+		{
+			test.log(Status.PASS, "Test case PASSED is"+result.getName());
+		}
+	}
 }
 	
 
