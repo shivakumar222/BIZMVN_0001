@@ -1,4 +1,19 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.634 sec - in TestSuite
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 57.712 sec <<< FAILURE! - in TestSuite
+testCreatecity(MavenDemo.BizgazeMaven.ModuleCities)  Time elapsed: 38.498 sec  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id='bizgaze_body']/div[8]/div (tried for 30 second(s) with 500 milliseconds interval)
+	at MavenDemo.BizgazeMaven.ModuleCities.testCreatecity(ModuleCities.java:55)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='bizgaze_body']/div[8]/div"}
+  (Session info: chrome=84.0.4147.89)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-GS5ECRN', ip: '192.168.43.247', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 84.0.4147.89, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\Shiva\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54604}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: f9036276b9739f4d946d8008001e47a7
+*** Element info: {Using=xpath, value=//*[@id='bizgaze_body']/div[8]/div}
+	at MavenDemo.BizgazeMaven.ModuleCities.testCreatecity(ModuleCities.java:55)
+

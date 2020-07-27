@@ -44,17 +44,17 @@ public class ModuleCities  extends SetupClass
 	 	w11.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()='Cities']")));
 		driver.findElement(By.xpath("//div[text()='Cities']")).click();
 	    driver.findElement(By.id("btnCreateNew")).click();
-	    WebDriverWait w2=new WebDriverWait(driver,3); 
-	    WebElement CityName=w2.until(ExpectedConditions.visibilityOfElementLocated(By.id("txt_CityName")));
-	    CityName.sendKeys("vs33");
-		driver.findElement(By.cssSelector("input[id='txt_CityCode']")).sendKeys("82");
+
+	    WebElement CityName=w11.until(ExpectedConditions.visibilityOfElementLocated(By.id("txt_CityName")));
+	    CityName.sendKeys("vs383");
+		driver.findElement(By.cssSelector("input[id='txt_CityCode']")).sendKeys("8222");
 		driver.findElement(By.id("select2-txtAutoComplete_110144181002819_DistrictId-container")).click();
-		WebElement dropdown =w2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Agra']")));
+		WebElement dropdown =w11.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[text()='Agra']")));
 	   	dropdown.click();
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
-		w2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='bizgaze_body']/div[8]/div")));
+	/*	w11.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='bizgaze_body']/div[8]/div")));
 		String s=driver.findElement(By.xpath("//*[@id='bizgaze_body']/div[8]/div")).getText();
-		Reporter.log(s);	
+		Reporter.log(s);	*/
 		log.info("****************************** ending test case *****************************************");
 	}
 	

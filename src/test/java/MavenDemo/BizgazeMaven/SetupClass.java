@@ -1,8 +1,13 @@
 package MavenDemo.BizgazeMaven;
 
 
+import java.io.File;
+
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -35,17 +40,17 @@ public class SetupClass
 	@BeforeSuite
 	public void extentReport()//extent report 
 	{
-		  htmlReporter = new ExtentHtmlReporter("extent.html");
-		  htmlReporter.config().setDocumentTitle("Automation report");
-		  htmlReporter.config().setReportName("Functional Report");
-		  htmlReporter.config().setTheme(Theme.DARK);
-	         extent = new ExtentReports();
+		    htmlReporter = new ExtentHtmlReporter("extent.html");
+		    htmlReporter.config().setDocumentTitle("Automation report");
+		    htmlReporter.config().setReportName("Functional Report");
+		    htmlReporter.config().setTheme(Theme.DARK);
+	        extent = new ExtentReports();
 	        extent.attachReporter(htmlReporter); 
 	        extent.setSystemInfo("hostname", "localhost");
 	        extent.setSystemInfo("OS", "windows10");
 	        extent.setSystemInfo("Tester name", "shiva kumar");
 	        extent.setSystemInfo("Browser", "Chrome");
-	        
+	       // 2020IN35 udemey coupoun
 	}
 	
 	@BeforeTest
@@ -58,11 +63,11 @@ public class SetupClass
    @BeforeClass	
    public void login() throws InterruptedException
    {
-	   driver.get(mainurl);
-	   driver.findElement(By.id("InputEmail")).sendKeys(username);
-	   driver.findElement(By.id("InputPassword")).sendKeys(password);
-	   driver.findElement(By.id("BtnLogin")).click();	
-	   log.info("entering application URL");
+	    driver.get(mainurl);
+	    driver.findElement(By.id("InputEmail")).sendKeys(username);
+	    driver.findElement(By.id("InputPassword")).sendKeys(password);
+	    driver.findElement(By.id("BtnLogin")).click();	
+	    log.info("entering application URL");
 		log.warn("Hey this just a warning message");
 		log.fatal("hey this is just fatal error message");
 		log.debug("this is debug message");
@@ -72,8 +77,8 @@ public class SetupClass
    {
 	    WebDriverWait w11=new WebDriverWait(driver,50); 
 	    w11.until(ExpectedConditions.presenceOfElementLocated(By.id("loginUserImg")));
-	       driver.findElement(By.id("loginUserImg")).click();
-	        driver.findElement(By.xpath("//span[text()='Log out']")).click();
+	    driver.findElement(By.id("loginUserImg")).click();
+	    driver.findElement(By.xpath("//span[text()='Log out']")).click();
    }
    @AfterTest(enabled=false)
    public void closeBrowser()
@@ -85,10 +90,19 @@ public class SetupClass
    {
 	   extent.flush();
    }
+   public static  void screenshot() 
+   {
+   	File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+   	try {
+			//FileUtils.copyFile(src,new File("D:\\eclipse workspace\\shiva\\BizgazeMaven\\Screenshot"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+   	
+   	
+   }
 }
-
-
-
 
 
 
