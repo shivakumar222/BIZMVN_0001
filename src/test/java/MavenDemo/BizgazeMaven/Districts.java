@@ -39,6 +39,7 @@ public class Districts extends SetupClass
 		driver.findElement(By.xpath("//*[@id='formFooter']/div/button[2]")).click();
 		driver.findElement(By.xpath("//*[@id='formFooter']/div/div/a[1]")).click();
 		Reporter.log(driver.findElement(By.xpath("//*[@id='bizgaze_body']/div[25]/div")).getText());
+		driver.findElement(By.xpath("//strong[text()='vs838']")).click();
 		
 }
 }
